@@ -59,25 +59,28 @@ void insertion_sort_list(listint_t **list)
 	int sorted = 0;
 	listint_t *node = *list, *list_node, *iter_node;
 
-	while (node != NULL)
+	if (list != NULL && *list != NULL)
 	{
-		list_node = node;
-		iter_node = list_node->prev;
-		node = node->next;
-		sorted = 0;
-		while (iter_node != NULL && sorted == 0)
+		while (node != NULL)
 		{
-			sorted = 1;
-			if (iter_node->n > list_node->n)
+			list_node = node;
+			iter_node = list_node->prev;
+			node = node->next;
+			sorted = 0;
+			while (iter_node != NULL && sorted == 0)
 			{
-				if (iter_node == *list)
-					*list = list_node;
-				swap_nodes(iter_node, list_node);
-				print_list(*list);
-				sorted = 0;
+				sorted = 1;
+				if (iter_node->n > list_node->n)
+				{
+					if (iter_node == *list)
+						*list = list_node;
+					swap_nodes(iter_node, list_node);
+					print_list(*list);
+					sorted = 0;
+					iter_node = iter_node->prev;
+				}
 				iter_node = iter_node->prev;
 			}
-			iter_node = iter_node->prev;
 		}
 	}
 }
