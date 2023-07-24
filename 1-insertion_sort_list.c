@@ -59,7 +59,7 @@ void insertion_sort_list(listint_t **list)
 	int sorted = 0;
 	listint_t *node = *list, *list_node, *iter_node;
 
-	if (list != NULL && *list != NULL)
+	if (list != NULL && *list != NULL && (*list)->next != NULL)
 	{
 		while (node != NULL)
 		{
