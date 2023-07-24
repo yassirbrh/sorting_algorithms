@@ -75,7 +75,7 @@ void insertion_sort_list(listint_t **list)
 					if (iter_node == *list)
 						*list = list_node;
 					swap_nodes(iter_node, list_node);
-					print_list(*list);
+					print_list((const listint_t *)*list);
 					sorted = 0;
 					iter_node = iter_node->prev;
 				}
