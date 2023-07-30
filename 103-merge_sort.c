@@ -49,6 +49,8 @@ void merge_sort(int *array, size_t size)
 {
 	size_t sizeOfArr = size / 2, i, j = sizeOfArr;
 
+	if (array == NULL || size < 2)
+		return;
 	if (size > 2)
 	{
 		merge_sort(array, sizeOfArr);
@@ -65,11 +67,9 @@ void merge_sort(int *array, size_t size)
 				{
 					swap_numbers(array + i, array + j);
 					j = i;
-				}
-			}
+				}}
 			printf("[Done]: ");
-			print_array(array + sizeOfArr, sizeOfArr + 1);
-		}
+			print_array(array + sizeOfArr, sizeOfArr + 1); }
 		printf("Merging...\n[left]: ");
 		print_array(array, sizeOfArr);
 		printf("[right]: ");
@@ -80,11 +80,8 @@ void merge_sort(int *array, size_t size)
 			{
 				if (array[i] > array[j])
 					swap_numbers(array + i, array + j);
-			}
-		}
+			}}
 		printf("[Done]: ");
-		print_array(array, size);
-	}
+		print_array(array, size); }
 	else
-		swap_array_of_two(array, sizeOfArr);
-}
+		swap_array_of_two(array, sizeOfArr); }
